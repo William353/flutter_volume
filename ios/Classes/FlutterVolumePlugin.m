@@ -98,7 +98,7 @@
     [self disableWatch];
     result(nil);
   } else if ([@"init_volume" isEqualToString:call.method]) {
-    [self initVolumeView];
+    [self initVolume];
     result(nil);
   } else if ([@"enable_ui" isEqualToString:call.method]) {
     if (_volumeView != nil)
@@ -112,6 +112,13 @@
     else
       NSLog(@"enable ui failed, null volume view");
     result(nil);
+  }
+}
+- (void)initVolume {
+  if (_volumeView == nil) {
+    _volumeView =
+        [[MPVolumeView alloc] initWithFrame:CGRectMake(-100, -100, 10, 10)];
+    _volumeView.hidden = YES;
   }
 }
 
