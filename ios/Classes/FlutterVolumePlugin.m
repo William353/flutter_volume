@@ -90,11 +90,15 @@
     result(@(v));
   } else if ([@"get" isEqualToString:call.method]) {
     result(@([self getVolume]));
+      
   } else if ([@"enable_watch" isEqualToString:call.method]) {
     [self enableWatch];
     result(nil);
   } else if ([@"disable_watch" isEqualToString:call.method]) {
     [self disableWatch];
+    result(nil);
+  } else if ([@"init_volume" isEqualToString:call.method]) {
+    [self initVolumeView];
     result(nil);
   } else if ([@"enable_ui" isEqualToString:call.method]) {
     if (_volumeView != nil)

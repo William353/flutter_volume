@@ -82,6 +82,10 @@ class FlutterVolume {
     _eventSubs = null;
   }
 
+  static Future<void> initVolume() {
+    return _channel.invokeMethod("init_volume");
+  }
+
   static Future<void> enableUI() {
     return _channel.invokeMethod("enable_ui");
   }
